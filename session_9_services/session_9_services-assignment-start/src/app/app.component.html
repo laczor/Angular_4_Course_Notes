@@ -1,0 +1,49 @@
+<div class="container">
+  <div>
+    <h2>***Session 9 Assignement ***</h2>
+  <div>
+    Firstly, creat a service, where the two arrays, of active/inactive users are stored + methods to modify tha arrays
+  Secondly, Inject the service to the components, remove the Output/input values
+  THirdly, inject the user_counter service to the user service
+  </div>
+  <div>
+    Firsty,
+  // 1.counterUserServices has been imported + injectebla importe + inlcuded in the appmodule (imported + provider)
+  // 2. Added to the component with constructor, (due to  injectable + app.module provider, instance has been creatd at app level)
+  // 3. use, the properties / methods of the newly injected services in the oter service
+  </div>
+
+  <div>
+    Secondy,
+  // 1. IMporting users, include it in the providers
+  // 2. Making a variable to store the array of names, array of strings 
+  // 3. Assigning with the consturctor, when the component is created the arrays stored in the services.
+  //4. for the active/inactive component, we only have to inject it + call the emitting event of the user.services
+  
+  </div>
+  <div>
+    Thirdly,
+  // 1.counterUserServices has been imported + injectebla importe + inlcuded in the appmodule (imported + provider)
+  // 2. Added to the component with constructor, (due to  injectable + app.module provider, instance has been creatd at app level)
+  // 3. use, the properties / methods of the newly injected services in the oter service
+  </div>
+
+
+</div>
+  <div class="row">
+    <div class="col-xs-12 col-md-8 col-md-offset-2">
+      <!--<app-active-users-->
+      <!--  [users]="activeUsers"-->
+      <!--  (userSetToInactive)="onSetToInactive($event)"-->
+      <!--  ></app-active-users>-->
+        
+        <app-active-users></app-active-users>
+      <app-inactive-users></app-inactive-users>
+    </div>
+    <!--
+      Optimize this app by adding a UsersService which manages the active and inactive users.
+
+      Also add a CounterService which counts the number of active->inactive and inactive->active actions.
+    -->
+  </div>
+</div>

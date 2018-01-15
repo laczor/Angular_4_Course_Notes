@@ -1,0 +1,28 @@
+  <div class="row">
+    <div class="col-xs-12">
+      <p>Add new Servers or blueprints!</p>
+      <label>Server Name</label>
+<!--two way databinding with ngModel + formModule, for the components newServerName property.-->
+      <!--<input type="text" class="form-control" [(ngModel)]="newServerName">-->
+      <!--Using local references for servernameinput, actually we are passing the whole input element as local reference
+      within this html template-->
+      <input 
+      type="text" 
+      class="form-control" 
+      #serverNameInput>
+      <label>Server Content</label>
+      <!--<input type="text" class="form-control" [(ngModel)]="newServerContent">-->
+      <input 
+      type="text" 
+      class="form-control" 
+      #serverContentInput>
+      <br>
+<!--Assiging event listener to the button click, with built in component's functions-->
+      <button
+        class="btn btn-primary"
+        (click)="onAddServer(serverNameInput)">Add Server</button>
+      <button
+        class="btn btn-primary"
+        (click)="onAddBlueprint(serverNameInput)">Add Server Blueprint</button>
+    </div>
+  </div>

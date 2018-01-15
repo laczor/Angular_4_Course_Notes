@@ -1,0 +1,49 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <button
+        class="btn btn-primary"
+        (click)="onlyOdd = !onlyOdd">Only show odd numbers</button>
+      <br><br>
+      <ul class="list-group">
+        <div *ngIf="!onlyOdd">
+          <li
+            class="list-group-item"
+            [ngStyle]='{backgroundColor:"green"}'
+            *ngFor= 'let number of eveneNumbers'>
+            <p>{{number}}</p>
+          </li>
+          
+        </div>
+        <div *ngIf="onlyOdd">
+            <li
+            class="list-group-item"
+            *ngFor= 'let number of oddNumbers'
+            [ngStyle]="{backgroundColor:'yellow'}">
+              <p>{{number}}</p>
+            </li>          
+        </div>
+        <div>Created structurel custom directive</div>
+        <div *appDirectiveName="onlyOdd">
+            <li
+            class="list-group-item"
+            *ngFor= 'let number of oddNumbers'
+            [ngStyle]="{backgroundColor:'yellow'}">
+              <p>{{number}}</p>
+            </li>          
+        </div>
+        <div>Creating divs with ngswitch</div>
+        <div [ngSwitch]="switchvalue">
+          <p *ngSwitchCase="3">The switch values is 3. </p>
+          <p *ngSwitchCase="5"> The switch values is 5. </p>
+          <p *ngSwitchDefault> The switch value is default </p>
+        </div>
+  <!--only a simple selector has to be put in the attribute section of the html element-->
+      </ul>
+      <p appBasicHighlight >First attribute Directive</p>
+      <!--[] used for the property binding, since string value has been assigned the following the syntax [property]="'stringValue'"-->
+      <!--we can simply pass values to the existing properties with propertyname = 'stringValue'-->
+      <p appBetterHighlight [defaultColor]="'white'" highlightColor='blue'  >First attribute Directive</p>
+    </div>
+  </div>
+</div>

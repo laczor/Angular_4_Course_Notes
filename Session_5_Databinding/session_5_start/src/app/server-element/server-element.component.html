@@ -1,0 +1,9 @@
+      <div
+        class="panel panel-default">
+        <div class="panel-heading" #heading>{{ name }}</div>
+        <div class="panel-body">
+<!--we are using ng-content directive, to tell angular, that this component will have some html conten
+between it's opening and closing tag-->
+          <ng-content></ng-content>
+        </div>
+      </div>

@@ -1,0 +1,28 @@
+import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { HttpModule } from '@angular/http';
+
+import { AppComponent } from './app.component';
+import { AccountComponent } from './account/account.component';
+import { NewAccountComponent } from './new-account/new-account.component';
+import {AccountsService } from './accounts.services';
+import { LoggingService } from './logging.services';
+
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    AccountComponent,
+    NewAccountComponent
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    HttpModule
+  ],
+// Lecture 101 in order to inject services to other services, we have to include the instance to the whole app
+  providers: [AccountsService,LoggingService],
+  bootstrap: [AppComponent]
+})
+export class AppModule { }

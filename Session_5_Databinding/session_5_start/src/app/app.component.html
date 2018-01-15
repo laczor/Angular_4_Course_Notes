@@ -1,0 +1,38 @@
+<div class="container">
+  <!--So we are listening to a custom event named serverCreated of the cockpit component
+  and when this event occurs, it will call the app.component's owen event of onServerAdded
+  (which happens after the serverCreated event) and serverCreated  passes the $event data to the onServerAdded
+  -->
+  <!--bpCreated is an alias custom event binding @Output('bpCreated') at cockpit.component.ts-->
+  <app-cockpit 
+  (serverCreated)="onServerAdded($event)"
+  (bpCreated)="onBlueprintAdded($event)"          
+  
+  ></app-cockpit>
+  <hr>
+    <div class="row">
+    <div class="col-xs-12">
+  <!--Lecutre 72 adding buttons to trigger changes in the elements-->
+      <button class="btn btn-primary" (click)="onChangeFirst()">Change first Element</button>
+      <button class="btn btn-danger" (click)="onDestroyFirst()">Destroy first Component</button>
+<!--using srvElement alias for the Input property of server-element component
+Lecture 72 binding the serverelement.name to the listening property of server-element of name-->
+      <app-server-element
+      *ngFor="let serverElement of serverElements" 
+      [srvElement]="serverElement"
+      [name]="serverElement.name">
+        <p #contentParagraph></p>
+        
+<!--This is where we are using the ng-content directive
+since by default, angular will remove any html content between the opening and closing tag of the component
+it is necessary to tell angular to check out for html conent between the tags-->
+          <p>
+            <strong *ngIf="serverElement.type === 'server'" style="color: red">{{ serverElement.content }}</strong>
+            <em *ngIf="serverElement.type === 'blueprint'">{{ serverElement.content }}</em>
+          </p>
+          
+      </app-server-element>
+  
+    </div>
+    </div>
+</div>

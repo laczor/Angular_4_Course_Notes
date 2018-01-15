@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+      <ul class="nav nav-tabs">
+        <li role="presentation" class="active"
+            routerLinkActive ="active"
+            [routerLinkActiveOptions]="{exact:true}">
+          <a routerLink='/' href="#">Home</a></li>
+        <li role="presentation"
+            routerLinkActive ="active">
+          <a routerLink='/servers' href="#">Servers</a></li>
+        <li role="presentation"
+            routerLinkActive ="active">
+          <a [routerLink]="['/users']" href="#">Users</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-xs-12 col-sm-10 col-md-8 col-sm-offset-1 col-md-offset-2">
+<!--This is where we are telling angular, where to output the router componenets defined in the app.module.ts-->
+      <router-outlet></router-outlet>
+    </div>
+</div>

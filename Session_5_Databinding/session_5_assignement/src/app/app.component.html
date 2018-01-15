@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Bind it!</h3>
+      <ol>
+        <li>Create three new components: GameControl, Odd and Even</li>
+        <li>The GameControl Component should have buttons to start and stop the game</li>
+        <li>When starting the game, an event (holding a incrementing number) should get emitted each second (ref = setInterval())</li>
+        <li>The event should be listenable from outside the component</li>
+        <li>When stopping the game, no more events should get emitted (clearInterval(ref))</li>
+        <li>A new Odd component should get created for every odd number emitted, the same should happen for the Even Component (on even numbers)</li>
+        <li>Simply output Odd - NUMBER or Even - NUMBER in the two components</li>
+        <li>Style the element (e.g. paragraph) holding your output text differently in both components</li>
+      </ol>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <h3>Main challanges</h3>
+      <p> 1. So firstly, after the components have been created and their ts variables are connected to their html components with string interpolation, i had to make custom events in the 
+      components, to trigger incerementing the component's variable of "score"</p>
+      <p>2. Then simple odd/even component has been created which only holds one property of "value with string interpolation"</p>
+      <p>3. At the app.component level, two array have been created, to store the odd,even numbers. In the app.component.html file, we are looping through these arrays with ngfor, using the odd/even components.</p>
+      <p>4.  We are listening to custom event properties with @Input with the odd/even components, so it can be changed from the upper compoment.</p>
+      <p>5. From the game controller, with @Output + EventEmitter, we are parsing information in an ojbect, to the appcompment, which are listening for the numChange emit, which will
+      pass the object element to the called NumberAdded function in the app.component.ts file</p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-12 col-md-9">
+<app-game-controller
+  (numChange)="numberAdded($event)"  
+  >
+</app-game-controller>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-6 col-md-6">
+      <app-odd
+        *ngFor = "let oddElement of oddArray"
+        [oddElementVal]="oddElement"
+      ></app-odd>
+     </div>
+     <div class="col-lg-6 col-md-6">
+       <app-evene
+        *ngFor = "let evenElement of evenArray"
+        [evenElementVal]='evenElement'
+      >
+       </app-evene>
+     </div>
+  </div>     
+  
+</div>
+
